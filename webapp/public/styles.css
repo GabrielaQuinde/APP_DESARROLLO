@@ -1,0 +1,519 @@
+/* EducaApp - Estilos Personalizados para Aplicación Móvil Educativa */
+
+/* Importar fuentes amigables para niños */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@400;700&display=swap');
+
+/* Variables CSS para consistencia de colores */
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-color: #45B7D1;
+  --warning-color: #FFA726;
+  --success-color: #66BB6A;
+  --background-light: #F8F9FA;
+  --text-dark: #2D3748;
+  --text-light: #718096;
+}
+
+/* Reset básico y configuración general */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Títulos con fuente divertida */
+.font-child, .font-fredoka {
+  font-family: 'Fredoka One', cursive !important;
+}
+
+/* Animaciones personalizadas */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3) translate3d(0,0,0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) translate3d(0,0,0);
+  }
+  70% {
+    transform: scale(0.9) translate3d(0,0,0);
+  }
+  100% {
+    transform: scale(1) translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0deg);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Clases de animación */
+.bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.4s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Efectos de hover mejorados para interactividad */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-bounce {
+  transition: transform 0.2s ease;
+}
+
+.hover-bounce:hover {
+  transform: scale(1.1);
+}
+
+.hover-bounce:active {
+  transform: scale(0.95);
+}
+
+/* Botones personalizados para niños */
+.btn-child {
+  border: none;
+  border-radius: 20px;
+  padding: 16px 32px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-child::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+  transform: translate(-50%, -50%);
+}
+
+.btn-child:hover::before {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+}
+
+.btn-primary-child {
+  background: linear-gradient(135deg, var(--primary-color), #FF5252);
+  color: white;
+}
+
+.btn-secondary-child {
+  background: linear-gradient(135deg, var(--secondary-color), #26C6DA);
+  color: white;
+}
+
+.btn-success-child {
+  background: linear-gradient(135deg, var(--success-color), #4CAF50);
+  color: white;
+}
+
+/* Cards personalizadas */
+.card-child {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.card-child:hover::before {
+  left: 100%;
+}
+
+.card-child:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+/* Elementos de juego interactivos */
+.draggable-item {
+  cursor: grab;
+  transition: all 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.draggable-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.draggable-item.dragging {
+  cursor: grabbing;
+  transform: rotate(5deg) scale(1.1);
+  z-index: 1000;
+  opacity: 0.8;
+}
+
+.drop-zone {
+  border: 3px dashed #E2E8F0;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-zone.drag-over {
+  border-color: var(--primary-color);
+  background-color: rgba(255, 107, 107, 0.05);
+  transform: scale(1.02);
+}
+
+/* Elementos de progreso */
+.progress-bar {
+  background: #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 12px;
+  position: relative;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Estrellas animadas */
+.star {
+  display: inline-block;
+  font-size: 24px;
+  animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+
+.star:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.star:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Elementos de feedback */
+.feedback-correct {
+  background: linear-gradient(135deg, var(--success-color), #4CAF50);
+  color: white;
+  animation: bounceIn 0.6s ease-out;
+}
+
+.feedback-incorrect {
+  background: linear-gradient(135deg, var(--warning-color), #FF9800);
+  color: white;
+  animation: bounceIn 0.6s ease-out;
+}
+
+/* Responsive design para diferentes tamaños de pantalla */
+@media (max-width: 480px) {
+  .card-child {
+    padding: 16px;
+    border-radius: 20px;
+  }
+  
+  .btn-child {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  .grid-cols-2 > * {
+    min-height: 120px;
+  }
+  
+  .grid-cols-3 > * {
+    min-height: 100px;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Estilos específicos para elementos de juego */
+.math-option {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.math-option:hover {
+  background: linear-gradient(135deg, var(--accent-color), #42A5F5);
+  color: white;
+  transform: scale(1.05);
+}
+
+.syllable-item {
+  cursor: grab;
+  transition: all 0.3s ease;
+}
+
+.syllable-item:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.syllable-item.placed {
+  background: var(--success-color);
+  color: white;
+  cursor: default;
+}
+
+/* Avatar selection */
+.avatar-btn {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.avatar-btn:hover {
+  transform: scale(1.2);
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.avatar-btn.selected {
+  border-color: var(--primary-color) !important;
+  background: rgba(255, 107, 107, 0.1) !important;
+  transform: scale(1.1);
+}
+
+/* PIN input styling */
+.pin-input {
+  transition: all 0.3s ease;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+}
+
+.pin-input:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+/* Loading spinner para transiciones */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Efectos de sonido visual */
+.sound-wave {
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: var(--primary-color);
+  margin: 0 2px;
+  animation: sound 1.2s ease-in-out infinite alternate;
+}
+
+.sound-wave:nth-child(2) { animation-delay: 0.1s; }
+.sound-wave:nth-child(3) { animation-delay: 0.2s; }
+.sound-wave:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes sound {
+  0% {
+    height: 5px;
+    opacity: 0.3;
+  }
+  100% {
+    height: 20px;
+    opacity: 1;
+  }
+}
+
+/* Controles parentales específicos */
+.parent-control {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(50%);
+}
+
+.parent-control.active {
+  opacity: 1;
+  pointer-events: auto;
+  filter: none;
+}
+
+/* Modo oscuro para mejor legibilidad */
+@media (prefers-color-scheme: dark) {
+  .card-child {
+    background: #2D3748;
+    color: white;
+  }
+  
+  .text-gray-800 {
+    color: #E2E8F0 !important;
+  }
+  
+  .text-gray-600 {
+    color: #A0AEC0 !important;
+  }
+}
